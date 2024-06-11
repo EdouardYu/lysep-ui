@@ -3,16 +3,19 @@ import './Profile.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Profile } from './types';
 import axiosInstance from "@/services/axiosConfig.ts";
+import UserService from "@/services/UserService.ts";
 
 const App: React.FC = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
+    useEffect( () => {
+
         const fetchProfile = async () => {
-            // const userId = localStorage.getItem('userId'); // Assuming user ID is stored in localStorage
-            const userId = "1";
+            const token = localStorage.getItem("authToken");
+            const payload = JSON.parse(atob(token!.split(".")[1]));
+            const userId = payload.id;
 
             if (!userId) {
                 setError('User ID not found');
@@ -21,8 +24,8 @@ const App: React.FC = () => {
             }
 
             try {
-                const response = await axiosInstance.get<Profile>(`/profile/${userId}`);
-                setProfile(resp.data);onse
+                const response = await axiosInstance.get<Profile>(`/profiles/${userId}`);
+                setProfile(response.data);
             } catch (err) {
                 setError('Failed to fetch profile');
             } finally {

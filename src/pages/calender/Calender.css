@@ -2,9 +2,8 @@
     margin-top: 40px;
     margin-bottom: 40px;
     margin-left: 20px;
-    width: calc(90% - 300px);
     border-radius: 30px;
-    background: #ffffff; /* White background for the calendar */
+    background: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }

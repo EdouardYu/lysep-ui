@@ -41,7 +41,7 @@ const Login: FunctionComponent = () => {
 
   return (
     <div className="auth-page">
-      {/*<div className="auth-container">
+      <div className="auth-container">
         <h2>Login</h2>
         {globalError && <div className="error global-error">{globalError}</div>}
         <form onSubmit={handleSubmit}>
@@ -79,7 +79,6 @@ const Login: FunctionComponent = () => {
           </p>
         </div>
       </div>
-      */}
     </div>
   );
 };

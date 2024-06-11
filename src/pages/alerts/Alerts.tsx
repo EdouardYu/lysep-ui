@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import './Notifications.css';
+import './Alerts.css';
 import { momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { Notification } from './types';
+import {Alert} from './types';
 import axiosInstance from "@/services/axiosConfig.ts";
 const localizer = momentLocalizer(moment);
 
-const Notifications: React.FC = () => {
-    const [notifications, setNotifications] = useState<Notification[]>([]);
+const Alerts: React.FC = () => {
+    const [notifications, setAlerts] = useState<Alert[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const fetchNotifications = async () => {
+        const fetchAlerts = async () => {
             try {
-                const response = await axiosInstance.get<Notification[]>('/notifications');
-                setNotifications(response.data);
+                const response = await axiosInstance.get<Alert[]>('/alerts');
+                setAlerts(response.data);
             } catch (err) {
-                setError('Failed to fetch notifications');
+                setError('Failed to fetch alerts');
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchNotifications();
+        fetchAlerts();
     }, []);
 
     if (loading) {
@@ -50,11 +50,11 @@ const Notifications: React.FC = () => {
                         </div>
                     ))
                 ) : (
-                    <p>No notifications available</p>
+                    <p>No alerts available</p>
                 )}
             </div>
         </>
     );
 };
 
-export default Notifications;
+export default Alerts;
