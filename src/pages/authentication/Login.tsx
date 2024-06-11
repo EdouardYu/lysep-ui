@@ -1,7 +1,7 @@
 import { FunctionComponent, useState, ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "@/services/AuthService";
-import "@/pages/authentication/Auth.css";
+import "@/pages/authentication/Login.css";
 import axios from "axios";
 
 const Login: FunctionComponent = () => {
@@ -40,43 +40,48 @@ const Login: FunctionComponent = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-container">
-        <h2>Login</h2>
-        {globalError && <div className="error global-error">{globalError}</div>}
-        <form onSubmit={handleSubmit}>
-          <label>
-            Email:
-            <input
-              type="text"
-              name="email"
-              value={credentials.email}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={credentials.password}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <button type="submit">Login</button>
-        </form>
-        <div className="auth-links">
-          <p>
-            Don't have an account?{" "}
-            <Link to="/authentication/signup">Sign up here</Link>
-          </p>
-          <p>
-            <Link to="/authentication/password/reset">
-              Forgot your password?
-            </Link>
-          </p>
+    <div className="connexion-container">
+      <div className="left-container">
+        <img src="/public/assets/lyseplogo.png" alt="Logo LYS'EP" className="logo" />  
+      </div>
+      <div className="right-container">     
+        <div className="auth-container">
+          <h2>Connexion</h2>
+          {globalError && <div className="error global-error">{globalError}</div>}
+          <form onSubmit={handleSubmit} className="connexion-form">
+            <label>
+              Email:
+              <input
+                type="text"
+                name="email"
+                value={credentials.email}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Mot de passe:
+              <input
+                type="password"
+                name="password"
+                value={credentials.password}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <button type="submit">Connexion</button><br></br>
+          </form>
+          <div className="auth-links">
+            <p>
+              Vous n'avez pas de compte ?{" "}
+              <Link to="/authentication/signup">Inscris toi ici !</Link>
+            </p>
+            <p>
+              <Link to="/authentication/password/reset">
+                Mot de passe oublié ?
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
