@@ -5,10 +5,10 @@ import {PrivateLayout, Home, Profile, PageNotFound, Notifications, Calender} fro
 const PrivateRouter: FunctionComponent = () => {
   return (
     <Routes>
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route element={<PrivateLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/notifications/:id" element={<Notifications/>} />
           <Route path="/calender/:id" element={<Calender/>} />
           <Route path="*" element={<PageNotFound />} />

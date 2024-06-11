@@ -1,4 +1,3 @@
-import "@/App.css";
 import { FunctionComponent } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PublicGuard } from "@/guards/AuthGuard";

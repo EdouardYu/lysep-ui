@@ -3,7 +3,7 @@ import { FunctionComponent } from "react";
 const PageNotFound: FunctionComponent = () => {
   return (
     <>
-      <p>Page not found</p>
+      <p>Page not found :)</p>
     </>
   );
 };

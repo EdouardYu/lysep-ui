@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../../../lysep/src/App.css';
+import '@/components/layout/sidebar/Sidebar';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
