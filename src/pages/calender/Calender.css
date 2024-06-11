@@ -1,0 +1,51 @@
+
+.calendar {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    width: calc(90% - 300px);
+    border-radius: 30px;
+    background: #ffffff; /* White background for the calendar */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.rbc-calendar {
+    font-family: 'Arial', sans-serif;
+    border-radius: 0; /* Remove border radius */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+    background: transparent; /* Make background transparent */
+}
+
+.rbc-event {
+    border-radius: 8px;
+    background-color: #e0f7fa;
+    border: 1px solid #00acc1;
+    color: #006064;
+}
+
+.rbc-event:hover {
+    background-color: #b2ebf2;
+}
+
+.rbc-toolbar {
+    background-color: transparent; /* Make toolbar background transparent */
+    border-bottom: 1px solid #ddd;
+    border-radius: 0; /* Remove border radius */
+    padding: 10px;
+}
+
+.rbc-toolbar button {
+    background: #00acc1;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rbc-toolbar button:hover {
+    background: #007c91;
+}

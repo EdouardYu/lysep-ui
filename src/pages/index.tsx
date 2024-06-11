@@ -5,6 +5,6 @@ export { default as Signup } from "@/pages/authentication/Signup";
 export { default as ResetPassword } from "@/pages/authentication/ResetPassword";
 export { default as Home } from "@/pages/home/Home";
 export { default as Profile } from "@/pages/profile/Profile";
-export { default as PageNotFound } from "@/pages/page-not-found/PageNotFound";
 export { default as Calender } from "@/pages/calender/Calender";
 export { default as Notifications } from "@/pages/notifications/Notifications";
+export { default as PageNotFound } from "@/pages/page-not-found/PageNotFound";
