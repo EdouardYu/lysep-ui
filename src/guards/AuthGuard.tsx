@@ -22,6 +22,7 @@ const isAuthenticated = (): boolean => {
   }
 };
 
+
 export const AuthGuard: FunctionComponent<GuardProps> = ({ children }) => {
   if (!isAuthenticated()) {
     return <Navigate to="/authentication/login" />;

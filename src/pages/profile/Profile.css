@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin-bottom: 40px;
 }
 
 .profile-row {
@@ -35,11 +36,58 @@
 }
 
 .profile-row strong {
-    width: 150px; /* Fixed width for labels */
+    width: 150px;
 }
 
 .profile-row span {
     flex: 1;
     font-size: 18px;
     margin: 0;
+}
+
+.profile-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-content {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-details {
+    width: 100%;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.profile-row input {
+    width: 60%;
+}
+
+.profile-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    margin-left: 50px;
 }

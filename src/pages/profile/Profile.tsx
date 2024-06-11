@@ -3,6 +3,7 @@ import './Profile.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Profile } from './types';
 import axiosInstance from "@/services/axiosConfig.ts";
+import PasswordModal from './PasswordModal';
 
 const App: React.FC = () => {
     const [profile, setProfile] = useState<Profile | null>(null);
@@ -10,6 +11,7 @@ const App: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [editedProfile, setEditedProfile] = useState({ username: '', phone: '' });
+    const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -52,11 +54,28 @@ const App: React.FC = () => {
     const handleSaveClick = async () => {
         if (profile) {
             try {
-                const response = await axiosInstance.put<Profile>(`/profiles/${profile.id}`, editedProfile);
+                const token = localStorage.getItem("authToken");
+                const payload = JSON.parse(atob(token!.split(".")[1]));
+                const userId = payload.id;
+                const response = await axiosInstance.put<Profile>(`/profiles/${userId}`, editedProfile);
                 setProfile(response.data);
                 setIsEditing(false);
             } catch (err) {
                 setError('Failed to update profile');
+            }
+        }
+    };
+
+    const handlePasswordSave = async (oldPassword: string, newPassword: string) => {
+        if (profile) {
+            try {
+                const token = localStorage.getItem("authToken");
+                const payload = JSON.parse(atob(token!.split(".")[1]));
+                const userId = payload.id;
+                await axiosInstance.put(`/profiles/${userId}/password`, { old_password: oldPassword, new_password: newPassword });
+                setPasswordModalOpen(false);
+            } catch (err) {
+                setError('Failed to update password');
             }
         }
     };
@@ -125,13 +144,23 @@ const App: React.FC = () => {
                             </div>
                         )}
                     </div>
-                    {isEditing ? (
-                        <button onClick={handleSaveClick}>Save</button>
-                    ) : (
-                        <button onClick={handleEditClick}>Edit</button>
-                    )}
+                    <div className="profile-button-container">
+                        {isEditing ? (
+                            <button onClick={handleSaveClick}>Save</button>
+                        ) : (
+                            <>
+                                <button onClick={handleEditClick}>Edit</button>
+                                <button onClick={() => setPasswordModalOpen(true)}>Modify Password</button>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
+            <PasswordModal
+                show={passwordModalOpen}
+                onClose={() => setPasswordModalOpen(false)}
+                onSave={handlePasswordSave}
+            />
         </>
     );
 };

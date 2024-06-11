@@ -6,6 +6,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './Calender.css';
 import axiosInstance from "@/services/axiosConfig.ts";
 import Modal from './Modal';
+import {CalendarEvent} from "@/pages/calender/types.ts";
 
 const localizer = momentLocalizer(moment);
 
@@ -14,17 +15,6 @@ interface Event {
     title: string;
     date: string;
     module: {
-        id: number;
-        label: string;
-    };
-}
-
-interface CalendarEvent {
-    id: number;
-    title: string;
-    start: Date;
-    end: Date;
-    module?: {
         id: number;
         label: string;
     };
@@ -67,6 +57,7 @@ const App: React.FC = () => {
             const response = await axiosInstance.get<Event>(`/events/${event.id}`);
             const fetchedEvent = {
                 ...response.data,
+                id: event.id,
                 start: new Date(response.data.date),
                 end: new Date(response.data.date), // Assuming single point in time
             };

@@ -1,8 +1,9 @@
 export interface Profile {
-    email: string;
+    id: number;
+    username: string;
     firstname: string;
     lastname: string;
-    username: string;
+    email: string;
     phone: string;
-    role: string;
+    role: 'STUDENT' | 'TEACHER';
 }
