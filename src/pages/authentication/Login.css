@@ -1,0 +1,141 @@
+/* Common styles */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    margin: 0;
+  }
+  
+  /* Style for the login form */
+  .connexion-container {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #eddbd9, #fefefe);
+    background-size: cover;
+  }
+  
+  .left-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+  
+  .logo {
+    width: 50%;
+    height: auto;
+  }
+  
+  .right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background: white;
+    border-radius: 10px;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+  }
+  
+  .auth-container {
+    width: 80%;
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .connexion-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .connexion-form label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .connexion-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
+    background-color: #eaeaea;
+    border-radius: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .connexion-form input:focus {
+    border-color: #a87979;
+    box-shadow: 0 0 8px rgba(168, 121, 121, 0.2);
+    outline: none;
+  }
+  
+  .connexion-form button {
+    width: 25%;
+    padding: 8px;
+    background: #caa1b3;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .connexion-form button:hover {
+    background: #b17d94;
+    transform: translateY(-1px);
+  }
+  
+  .connexion-form button:active {
+    background: #b67b7b;
+    transform: translateY(0);
+  }
+  
+  .auth-links {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .auth-links p {
+    margin: 10px 0;
+  }
+  
+  .auth-links a {
+    color: #1877f2;
+    text-decoration: none;
+  }
+  
+  .auth-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+  }
+  
+  .global-error {
+    padding-bottom: 20px;
+  }
+  

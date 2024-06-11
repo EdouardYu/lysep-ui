@@ -1,0 +1,203 @@
+/* Container for the whole page */
+.signup-container {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #eddbd9, #fefefe);
+    background-size: cover;
+  }
+  
+  /* Left container with the logo */
+  .left-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+  
+  .logo {
+    width: 50%;
+    height: auto;
+  }
+  
+  /* Right container with the form */
+  .right-container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background: white;
+    border-radius: 10px;
+  }
+  
+  /* Main container for the form elements */
+  .auth-container2 {
+    width: 80%;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .auth-container2 h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .auth-form input,
+  .auth-form .select__control {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #fff;
+    background-color: #eaeaea;
+    border-radius: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .auth-form input:focus,
+  .auth-form .select__control--is-focused {
+    border-color: #a87979;
+    box-shadow: 0 0 8px rgba(168, 121, 121, 0.2);
+    outline: none;
+  }
+  
+  .auth-form .select__control {
+    padding: 0;
+  }
+  
+  .auth-form button {
+    width: 60%;
+    padding: 10px;
+    background: #caa1b3;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .auth-form button:hover {
+    background: #b17d94;
+    transform: translateY(-1px);
+  }
+  
+  .auth-form button:active {
+    background: #b67b7b;
+    transform: translateY(0);
+  }
+  
+  /* Links styling */
+  .auth-links {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .auth-links p {
+    margin: 10px 0;
+  }
+  
+  .auth-links a {
+    color: #1877f2;
+    text-decoration: none;
+  }
+  
+  .auth-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Error styling */
+  .error {
+    color: red;
+    font-weight: bold;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+  }
+  
+  .global-error {
+    padding-bottom: 20px;
+  }
+  
+  /* Popup styling */
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  .popup-content h3 {
+    margin-top: 0;
+  }
+  
+  .popup-content label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .popup-content input:focus {
+    border: 2px solid #a87979;
+    outline: none;
+  }
+  
+  .popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+  }
+  
+  .popup-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button {
+    background-color: #caa1b3;
+    color: white;
+  }
+  
+  .submit-button:hover {
+    background-color: #b17d94;
+  }
+  
