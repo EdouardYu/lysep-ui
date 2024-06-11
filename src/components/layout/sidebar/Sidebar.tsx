@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
         try {
             await axiosInstance.post('/signout');
             localStorage.removeItem('authToken');
-            navigate('/login');
+            navigate('authentication/home');
         } catch (error) {
             console.error('Failed to sign out', error);
         }
@@ -45,6 +45,7 @@ const Sidebar: React.FC = () => {
                 <img src="/public/assets/gear.png" alt="settings" className="menuIcon" />
                 <span className="menuText">Paramètres</span>
             </Link>
+
             <span className="menuItem" onClick={handleLogout}>
                 <img src="/public/assets/logout.png" alt="logout" className="menuIcon" />
                 <span className="menuText">Déconnexion</span>

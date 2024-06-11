@@ -25,7 +25,7 @@ const Login: FunctionComponent = () => {
     try {
       const data = await AuthService.signin(credentials);
       localStorage.setItem("authToken", data.bearer);
-      navigate("/");
+      navigate("/calender");
     } catch (error) {
       if (
         axios.isAxiosError(error) &&

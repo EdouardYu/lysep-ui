@@ -33,7 +33,7 @@ export const AuthGuard: FunctionComponent<GuardProps> = ({ children }) => {
 
 export const PublicGuard: FunctionComponent<GuardProps> = ({ children }) => {
   if (isAuthenticated()) {
-    return <Navigate to="/" />;
+    return <Navigate to="/calender" />;
   }
 
   return <>{children}</>;
