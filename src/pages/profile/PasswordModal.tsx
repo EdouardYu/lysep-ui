@@ -1,4 +1,3 @@
-// PasswordModal.tsx
 import React, { useState } from 'react';
 import './Modal.css';
 
@@ -11,6 +10,7 @@ interface PasswordModalProps {
 const PasswordModal: React.FC<PasswordModalProps> = ({ show, onClose, onSave }) => {
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [showNotification, setShowNotification] = useState<boolean>(false);
 
     if (!show) {
         return null;
@@ -18,6 +18,11 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ show, onClose, onSave }) 
 
     const handleSave = () => {
         onSave(oldPassword, newPassword);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+            onClose();
+        }, 3000); // Hide notification after 3 seconds
     };
 
     return (
@@ -40,8 +45,13 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ show, onClose, onSave }) 
                         onChange={(e) => setNewPassword(e.target.value)}
                     />
                 </div>
-                <button onClick={handleSave}>Save</button>
-                <button onClick={onClose}>Cancel</button>
+                <button className="modal-button modal-button-save" onClick={handleSave}>Save</button>
+                <button className="modal-button modal-button-cancel" onClick={onClose}>Cancel</button>
+                {showNotification && (
+                    <div className="notification">
+                        Password changed successfully!
+                    </div>
+                )}
             </div>
         </div>
     );
