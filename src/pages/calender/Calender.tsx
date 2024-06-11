@@ -46,7 +46,10 @@ const App: React.FC = () => {
                     title: event.title,
                     start: new Date(event.date),
                     end: new Date(event.date), // Assuming the event is a single point in time; adjust as needed
+                    description: event.description,
                     module: event.module,
+                    publisher: event.publisher,
+                    created_at: event.created_at
                 }));
                 setEvents(transformedEvents);
             } catch (err) {

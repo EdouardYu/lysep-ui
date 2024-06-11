@@ -4,11 +4,11 @@ import './Modal.css';
 interface ModalProps {
     show: boolean;
     onClose: () => void;
-    event: any; // Replace `any` with a more specific type if necessary
+    event: CalendarEvent | null;
 }
 
 const Modal: React.FC<ModalProps> = ({ show, onClose, event }) => {
-    if (!show) {
+    if (!show || !event) {
         return null;
     }
 
@@ -16,9 +16,11 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, event }) => {
         <div className="modal-backdrop" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <h2>{event.title}</h2>
+                <p><strong>Description:</strong> {event.description}</p>
                 <p><strong>Date:</strong> {new Date(event.start).toLocaleString()}</p>
                 <p><strong>Module:</strong> {event.module?.label}</p>
-                <button onClick={onClose}>Fermer</button>
+                <p><strong>Publisher:</strong> {event.publisher?.fullname}</p>
+                <button onClick={onClose}>Close</button>
             </div>
         </div>
     );
