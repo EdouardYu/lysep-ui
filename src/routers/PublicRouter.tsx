@@ -5,14 +5,16 @@ import {
   Login,
   Signup,
   ResetPassword,
-  PageNotFound, Home,
+  PageNotFound,
+  Home,
 } from "@/pages";
 
 const PublicRouter: FunctionComponent = () => {
   return (
     <Routes>
       <Route element={<PublicLayout />}>
-        <Route path="/home" element={<Home />}/>
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/password/reset" element={<ResetPassword />} />

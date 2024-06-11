@@ -1,7 +1,7 @@
 import { FunctionComponent, useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthService from "@/services/AuthService";
-import "@/pages/authentication/Auth.css";
+import "@/pages/authentication/ResetPassword.css";
 import axios from "axios";
 
 const ResetPassword: FunctionComponent = () => {
@@ -110,8 +110,8 @@ const ResetPassword: FunctionComponent = () => {
 
   return (
     <div className="auth-page">
-      {/*<div className="auth-container">
-        {step === 2 ? (
+      {<div className="auth-container">
+        {step === 1 ? (
           <form onSubmit={handleSubmitEmail}>
             <h2>Reset Password</h2>
             {globalError && (
@@ -210,7 +210,7 @@ const ResetPassword: FunctionComponent = () => {
           </form>
         )}
       </div>
-      */}
+      }
     </div>
   );
 };
