@@ -1,4 +1,3 @@
-// Modal.tsx
 import React, { useState, useEffect } from 'react';
 import axiosInstance from "@/services/axiosConfig.ts";
 import './Modal.css';
@@ -14,6 +13,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, event }) => {
     const [canEdit, setCanEdit] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [editedEvent, setEditedEvent] = useState({ description: '', date: '' });
+    const [showNotification, setShowNotification] = useState<boolean>(false);
 
     useEffect(() => {
         console.log(event);
@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, event }) => {
             if (event && event.id) {
                 try {
                     const response = await axiosInstance.get<{ permission: boolean }>(`/events/${event.id}/permission`);
-                    setCanEdit(response.data.permission);
+                    setCanEdit(response.data);
                 } catch (error) {
                     console.error('Failed to fetch permission', error);
                 }
@@ -49,10 +49,18 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, event }) => {
     };
 
     const handleSaveClick = async () => {
+        const formattedEvent = {
+            ...editedEvent,
+            date: new Date(editedEvent.date).toISOString()
+        };
         try {
-            await axiosInstance.put(`/events/${event.id}`, editedEvent);
+            await axiosInstance.put(`/events/${event.id}`, formattedEvent);
             setIsEditing(false);
-            onClose();
+            setShowNotification(true);
+            setTimeout(() => {
+                setShowNotification(false);
+                onClose();
+            }, 3000); // Hide notification after 3 seconds
         } catch (error) {
             console.error('Failed to update event', error);
         }
@@ -82,8 +90,8 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, event }) => {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <button onClick={handleSaveClick}>Save</button>
-                        <button onClick={() => setIsEditing(false)}>Cancel</button>
+                        <button className="modal-button modal-button-save" onClick={handleSaveClick}>Save</button>
+                        <button className="modal-button modal-button-cancel" onClick={() => setIsEditing(false)}>Cancel</button>
                     </>
                 ) : (
                     <>
@@ -92,9 +100,14 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, event }) => {
                         <p><strong>Date:</strong> {new Date(event.start).toLocaleString()}</p>
                         <p><strong>Module:</strong> {event.module?.label}</p>
                         <p><strong>Publisher:</strong> {event.publisher?.fullname}</p>
-                        <button onClick={onClose}>Close</button>
-                        {canEdit && <button onClick={handleEditClick}>Edit</button>}
+                        <button className="modal-button modal-button-cancel" onClick={onClose}>Close</button>
+                        {canEdit && <button className="modal-button modal-button-save" onClick={handleEditClick}>Edit</button>}
                     </>
+                )}
+                {showNotification && (
+                    <div className="notification">
+                        Event updated successfully!
+                    </div>
                 )}
             </div>
         </div>
