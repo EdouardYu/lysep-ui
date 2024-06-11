@@ -13,8 +13,9 @@ const PublicRouter: FunctionComponent = () => {
     <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/home" element={<Home />}/>
-        <Route path="/authentification/login" element={<Login />} />
-        <Route path="authenfication/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/password/reset" element={<ResetPassword />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

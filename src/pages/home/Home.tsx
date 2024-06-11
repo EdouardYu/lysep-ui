@@ -5,7 +5,7 @@ const Home: React.FC = () => {
     return (
         <div className="homepage-container">
             <div className="homepage-logo">
-                <img src="/public/icons/logo.png" alt="LYS'EP Logo" /> {/* Assurez-vous de mettre le bon chemin vers votre logo */}
+                <img src="/public/assets/logo.png" alt="LYS'EP Logo" /> {/* Assurez-vous de mettre le bon chemin vers votre logo */}
             </div>
             <div className="homepage-content">
                 <h1>Connecte-toi et profite des fonctionnalités de LYS’EP !</h1>

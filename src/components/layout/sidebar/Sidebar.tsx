@@ -1,13 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axiosInstance from '@/services/axiosConfig';
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        try {
+            await axiosInstance.post('/signout');
+            localStorage.removeItem('authToken');
+            navigate('/login');
+        } catch (error) {
+            console.error('Failed to sign out', error);
+        }
+    };
 
     return (
         <div className="sidebar">
             <div className="header">
-                <h2>Hey dear user ! </h2>
+                <h2>Hey dear user!</h2>
             </div>
             <Link to="/profile" className="menuItem">
                 <img src="/public/assets/bust_in_silhouette.png" alt="profile" className="menuIcon" />
@@ -33,6 +45,10 @@ const Sidebar: React.FC = () => {
                 <img src="/public/assets/gear.png" alt="settings" className="menuIcon" />
                 <span className="menuText">Paramètres</span>
             </Link>
+            <span className="menuItem" onClick={handleLogout}>
+                <img src="/public/assets/logout.png" alt="logout" className="menuIcon" />
+                <span className="menuText">Déconnexion</span>
+            </span>
         </div>
     );
 };
