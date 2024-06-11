@@ -1,12 +1,12 @@
 import { FunctionComponent } from "react";
 import { Outlet } from "react-router-dom";
-import LogedHeader from "@/components/layout/header/LogedHeader";
+import Sidebar from "@/components/layout/sidebar/Sidebar.tsx";
 
 const PrivateLayout: FunctionComponent = () => {
   return (
     <>
-      <LogedHeader />
-      <main style={{ paddingTop: 70 }}>
+      <Sidebar />
+      <main>
         <Outlet />
       </main>
     </>

@@ -12,9 +12,7 @@ const App: FunctionComponent = () => {
         <Route
           path="/*"
           element={
-            <AuthGuard>
               <PrivateRouter />
-            </AuthGuard>
           }
         />
         <Route

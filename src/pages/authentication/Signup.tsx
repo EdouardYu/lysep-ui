@@ -8,7 +8,6 @@ import {
 } from "react";
 import { useNavigate } from "react-router-dom";
 import Select, { MultiValue, SingleValue, StylesConfig } from "react-select";
-import { Link } from "react-router-dom";
 import AuthService from "@/services/AuthService";
 import UserService from "@/services/UserService";
 import "@/pages/authentication/Auth.css";
