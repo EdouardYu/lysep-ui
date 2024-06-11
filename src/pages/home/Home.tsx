@@ -12,7 +12,7 @@ const Home: React.FC = () => {
                 <h1>Connecte-toi et profite des fonctionnalités de LYS’EP !</h1>
                 <div className="homepage-buttons">
                     <Link to="/authenfication/login"><button className="homepage-button login">Connexion</button></Link>
-                    <button className="homepage-button register">S’inscrire gratuitement</button>
+                    <Link to="/authenfication/signup"><button className="homepage-button register">S’inscrire gratuitement</button></Link>
                 </div>
             </div>
         </div>
