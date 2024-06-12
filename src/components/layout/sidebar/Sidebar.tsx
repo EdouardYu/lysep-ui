@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
     try {
       await axiosInstance.post("/signout");
       localStorage.removeItem("authToken");
-      navigate("authentication/home");
+      navigate("authentication");
     } catch (error) {
       console.error("Failed to sign out", error);
     }
