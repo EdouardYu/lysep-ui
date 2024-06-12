@@ -42,12 +42,14 @@ const Login: FunctionComponent = () => {
   return (
     <div className="connexion-container">
       <div className="left-container">
-        <img src="/public/assets/lyseplogo.png" alt="Logo LYS'EP" className="logo" />  
+        <img src="/assets/lyseplogo.png" alt="Logo LYS'EP" className="logo" />
       </div>
-      <div className="right-container">     
+      <div className="right-container">
         <div className="auth-container">
           <h2>Connexion</h2>
-          {globalError && <div className="error global-error">{globalError}</div>}
+          {globalError && (
+            <div className="error global-error">{globalError}</div>
+          )}
           <form onSubmit={handleSubmit} className="connexion-form">
             <label>
               Email:
@@ -69,7 +71,8 @@ const Login: FunctionComponent = () => {
                 required
               />
             </label>
-            <button type="submit">Connexion</button><br></br>
+            <button type="submit">Connexion</button>
+            <br></br>
           </form>
           <div className="auth-links">
             <p>
