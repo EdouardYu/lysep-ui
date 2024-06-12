@@ -8,4 +8,5 @@ export { default as Profile } from "@/pages/profile/Profile";
 export { default as Calender } from "@/pages/calender/Calender";
 export { default as Notifications } from "@/pages/notifications/Notifications";
 export { default as Alerts } from "@/pages/alerts/Alerts";
+export { default as Modules } from "@/pages/modules/Modules";
 export { default as PageNotFound } from "@/pages/page-not-found/PageNotFound";
