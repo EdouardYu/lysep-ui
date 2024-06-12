@@ -1,0 +1,21 @@
+.modules-page {
+    margin-top: 40px;
+    margin-left: 40px;
+    width: 1200px;
+}
+
+.modules-title {
+    margin-bottom: 20px;
+}
+
+.students-list {
+    margin-top: 20px;
+}
+
+.student-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
